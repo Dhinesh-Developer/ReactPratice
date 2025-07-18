@@ -1,0 +1,105 @@
+  concepts -- are -----> rules and regulations, attributes and Expression, conditional rendering , functions, comments etc.
+import './App.css'
+
+function App() {
+ 
+  return(
+    <div>
+     
+    </div>
+  )
+  
+}
+
+export default App
+
+
+/**  ----------------- Attributes and expressions.-------------------------
+ * function App() {
+const element = <h1>Hello, World</h1>
+const name = "Alice";
+const buttomlabel = "Click Me"
+const imageUrl = 'https://placehold.co/200x200';
+  return (
+    
+    <div>
+      
+      {10+2}
+      <p className=''>Hello ,{name}</p>
+      <button style={{ backgroundColor:'green',color:'white'}}>{buttomlabel}</button>
+      <button onClick={() => alert(`Button Clicked!`)}>Alert Me!</button>
+      <img src={imageUrl}></img>
+      {element}
+    </div>
+  )
+}
+
+ 
+-----------conditional rendering------------------
+
+const isLoggedin =true;
+  /**if(isLoggedin){
+    return <h1>Welcome back!</h1>
+  }
+  return <h1>Please Login</h1> */
+
+  // ternary operator
+//   const element = <h1>{isLoggedin?"Welcome back$" : "please try to login"}</h1>
+
+//   const message = ["Message1","message2"];
+
+//   return(
+//     <div>
+//       {element}
+//       {message.length >0 && <h3> You have {message.length} unread messages.</h3>}
+//     </div>
+//   )
+  
+// }
+
+
+
+/**  ------------------- functions----------------------------
+ * function WelcomeMessage(name){
+  return <h1>Hello, {name}</h1>
+}
+
+function greeting(isMorning){
+  if(isMorning){
+    return <h1>Good Morning!</h1>;
+  }else{
+    return <h1>Good Evening!</h1>;
+  }
+}
+
+function AlertBox(message){
+  return <div className='alert'>{message}</div>;
+}
+
+function showAlert(condition, message){
+  if(condition){
+    return AlertBox(message)
+  }else{
+    return null;
+  }
+}
+function App() {
+  const now = new Date();
+  const isMorning = now.getHours() < 12;
+  return(
+    <div>
+      {WelcomeMessage("Alice")}
+      {WelcomeMessage("Bob")}
+      {greeting(isMorning)}
+      {showAlert(true,"This is important")}
+      <h1>Hello</h1>
+    </div>
+  )
+
+*/ 
+/**--------------- This is comment- ------------------------ */
+  {/* This is a Line comment */}
+     {/* This is multi line comment
+      using for readable purpose */}
+  
+ 
