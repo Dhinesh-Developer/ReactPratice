@@ -1,0 +1,57 @@
+------------------ implementing Dark mode using the tailwind css -----------------------
+
+import DarkModeToggle from "./DarkModeToggle";
+
+function App() {
+  return (
+    <div className="p-4 bg-white min-h-screen dark:bg-gray-900 dark:text-white">
+      <DarkModeToggle />
+      <h1 className="text-2xl mt-4">Welcome to Dark Mode App</h1>
+      <p>This is an example of implementing dark mode using Tailwind CSS.</p>
+    </div>
+  );
+}
+
+export default App;
+
+--------------------------------------------------------
+import { useEffect, useState } from "react";
+
+function DarkModeToggle() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
+  return (
+    <button
+      onClick={() => setIsDarkMode(!isDarkMode)}
+      className="p-2 dark:bg-gray-700 dark:text-white bg-gray-200 text-gray-800 rounded"
+    >
+      Toggle {isDarkMode ? "Light" : "Dark"} Mode
+    </button>
+  );
+}
+
+export default DarkModeToggle;
+-----------------------------------------------------------------
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: 'class', // 👈 This is important!
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
